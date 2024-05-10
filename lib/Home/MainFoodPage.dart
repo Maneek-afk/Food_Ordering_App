@@ -13,7 +13,14 @@ class MainFoodPage extends StatefulWidget {
 
 class _MainFoodPageState extends State<MainFoodPage> {
   @override
+      void initState() {
+    super.initState();
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      print("current height: ${MediaQuery.of(context).size.height}");
+    });
+  }
   Widget build(BuildContext context) {
+  
     return Scaffold(
       body: Column(
         children: [

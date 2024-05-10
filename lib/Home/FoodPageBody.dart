@@ -2,6 +2,7 @@ import 'package:az/Widgets/bigText.dart';
 import 'package:az/Widgets/icon_and_text.dart';
 import 'package:az/Widgets/smallText.dart';
 import 'package:az/utils/Colors.dart';
+import 'package:az/utils/dimension.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   PageController pageController = PageController(viewportFraction: 0.9);
   var _currentPageValue = 0.0;
   double _scaleFactor=0.8;
-  double _height=220;
+  double _height=Dimension.pageViewContainer;
 
   @override
   void initState(){
@@ -40,7 +41,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     return  Column(
       children: [
         Container(
-          //color: Colors.red,
+          //2;16;30
           height: 320,
           child: PageView.builder(
             controller: pageController,
@@ -94,7 +95,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       child: Stack(
         children: [
       Container(
-        height: 220,
+        height: Dimension.pageViewContainer,
         margin: EdgeInsets.only(left: 10,right: 15),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
