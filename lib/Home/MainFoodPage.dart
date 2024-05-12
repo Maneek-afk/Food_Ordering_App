@@ -1,7 +1,10 @@
+import 'dart:ffi';
+
 import 'package:az/Home/FoodPageBody.dart';
 import 'package:az/Widgets/bigText.dart';
 import 'package:az/Widgets/smallText.dart';
 import 'package:az/utils/Colors.dart';
+import 'package:az/utils/dimension.dart';
 import 'package:flutter/material.dart';
 
 class MainFoodPage extends StatefulWidget {
@@ -40,8 +43,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                           SmallText(text: 'Pokhara',color: Colors.black54,),
                           const Icon(Icons.arrow_drop_down_rounded)
                         ],
-                      ),
-                      
+                      ),                     
                     ],
                   ),
                   Center(
@@ -60,8 +62,15 @@ class _MainFoodPageState extends State<MainFoodPage> {
             ),
           ),
         
-          //slider
-          const FoodPageBody()
+          const Expanded(
+            child: SingleChildScrollView(
+              child: FoodPageBody(),
+            )
+          ),
+          
+
+         
+       
         ],
       ),
     );

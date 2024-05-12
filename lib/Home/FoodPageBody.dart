@@ -42,7 +42,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       children: [
         Container(
           //2;16;30
-          height: 320,
+          height: Dimension.pageView,
           child: PageView.builder(
             controller: pageController,
             itemCount: 5,
@@ -59,9 +59,72 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             color: Colors.black87, // Inactive color
             activeColor: Appcolor.MainColor,
           ),
-        )
+        ),
+
+         //popular writing
+
+         Container(
+            margin: EdgeInsets.only(left: Dimension.widtht20),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                BigText(text: 'Popular'),
+                SizedBox(width: Dimension.widtht10,),
+                Container(
+                  child: BigText(text: '.',color: Colors.black26,),
+                ),
+                SizedBox(width: Dimension.widtht10,),
+                Container(
+                  margin: EdgeInsets.only(bottom: 2),
+                  child: SmallText(text: "Food Pairing"),
+                )
+              ],
+            ),
+          ),
+
+           //image and text
+
+           Container(
+            height: 700,
+            child: ListView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: 7,
+              itemBuilder: (context,index){
+                return Container(
+                  margin: EdgeInsets.only(bottom: Dimension.hieght20,left: Dimension.widtht10,right: Dimension.widtht10),
+                  child: Row(
+                    children: [
+                    //IMAGE SECTION
+                      Container(
+                      width: 120,
+                      height: 120,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Colors.white38,
+                        image: const DecorationImage(
+                          image: AssetImage("assets/Images/food2.jpg"))
+                        ),
+                      ),
+                      //TEXT SECTION
+                      Expanded(
+                        child: Container(
+                          height: 95,
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(20),
+                              bottomRight: Radius.circular(20)
+                            ),
+                            color: Color.fromARGB(179, 221, 219, 219)
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+            }),
+          )
       ],
-    );
+    );  
   }
 
   Widget _buildPageItem(int index){
@@ -100,9 +163,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
           color: index.isEven?Colors.blue:Colors.yellow,
-          image: DecorationImage(
+          image:  DecorationImage(
             fit: BoxFit.cover,
-            image: AssetImage("Images/food0.jpg")
+            image: AssetImage("assets/Images/food0.jpg")
           )
         ),
       ),
@@ -138,7 +201,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 BigText(text: "Burger"),
-                SizedBox(height: 10,),
+                SizedBox(height: Dimension.hieght10,),
                 Row(
                   children: [
                     Wrap(
@@ -156,7 +219,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       
                   ],
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: Dimension.hieght10,),
                   Row(
                       children: [
                         IconandText(
